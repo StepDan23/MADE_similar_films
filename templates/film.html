@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="title">{{ film_attr.title }}</h1>
+    <img src={{ film_attr.img_url }} alt="poster" width="400" height="600">
+    <h3 class="title">{{ film_attr.genres }}</h3>
+</div>
+
+{% if similar_films|length > 0 %}
+<h1 class="title">Similar</h1>
+<section class="section">
+    <div class="container">
+        <hr>
+        <table class="table is-striped is-fullwidth">
+            <thead>
+            <tr>
+                <th><abbr title="Img">Img</abbr></th>
+                <th><abbr title="Title">Title</abbr></th>
+                <th><abbr title="Genres">Genres</abbr></th>
+                <th><abbr title="Year">Year</abbr></th>
+                <th><abbr title="Link">Link</abbr></th>
+            </tr>
+            </thead>
+            {% for document in similar_films %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('film') }}?id={{ document.name }}">
+                        <img src={{ document.img_url }} alt="poster" width="200" height="300">
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url_for('film') }}?id={{ document.name }}">
+                        {{ document.title }}
+                    </a>
+                </td>
+                <td>
+                    {{ document.genres }}
+                </td>
+                <td>
+                    {{ document.year }}
+                </td>
+                <td>
+                    <a href={{ document.movie_url }} target="_blank">{{ document.movie_url }}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}
