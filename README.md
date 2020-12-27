@@ -1,4 +1,4 @@
-#MADE_similar_films
+# MADE_similar_films
 
 Demo for machine learning algorithms of search and similar items
 
@@ -26,6 +26,4 @@ At the output 2 csv files `data/movies_preprocessed.csv` and `data/rating_prepro
 link to site: http://127.0.0.1:5000/
 
 ## Recorded Demo
-
-https://youtu.be/Xq7c4DX2Iek
-
+[![Demo](data/youtube_logo.png)](https://youtu.be/Xq7c4DX2Iek "Demo")
